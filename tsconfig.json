@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "module": "commonjs",
+      "skipLibCheck": true,
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "target": "es5"
+    }
+  }

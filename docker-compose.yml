@@ -1,0 +1,28 @@
+version: "3"
+services:
+  gst-tax-management-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: server
+    container_name: gst-tax-management-server
+    depends_on:
+      - gst-tax-management-server-db
+    environment:
+      - PORT=5000
+      - TOKEN_SECRET=TOKEN_SECRET
+      - MONGO_URI=mongodb://admin:example@gst-tax-management-server-db:27017/
+    ports:
+      - "5000:5000"
+
+  gst-tax-management-server-db:
+    image: mongo
+    container_name: gst-tax-management-server-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    volumes:
+      - ./db:/data/db
+    ports:
+      - "27018:27017"
